@@ -41,7 +41,7 @@ env:
   WORKLOAD_IDENTITY_PROVIDER: 'projects/938459732232/locations/global/workloadIdentityPools/wif-ga-pool/providers/github'
                               
   ARTIFACT_REGISTRY: 'gitactions-repository' # Your Artifact Registry repository name
-  service_account: 'githubaction-832@regal-sun-445214-a7.iam.gserviceaccount.com'
+  service_account: 'githubaction@regal-sun-445214-a7.iam.gserviceaccount.com'
 
 jobs:
   deploy:
