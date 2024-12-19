@@ -69,8 +69,6 @@ jobs:
         run: |
           echo "Listing authenticated accounts..."
           gcloud auth list
-          echo "Listing Artifact Registry repositories..."
-          gcloud artifacts repositories list --filter="name:ga-repository" --location=us-central1
           echo "Describing the repository..."
           gcloud artifacts repositories describe ga-repository --location=us-central1
 
