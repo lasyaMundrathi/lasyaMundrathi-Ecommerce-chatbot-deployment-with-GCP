@@ -39,6 +39,7 @@ env:
   REGION: 'us-central1' # Your region
   SERVICE: 'githubaction' # Your Cloud Run service name
   WORKLOAD_IDENTITY_PROVIDER: 'projects/938459732232/locations/global/workloadIdentityPools/wif-ga-pool/providers/github'
+                              
   ARTIFACT_REGISTRY: 'ga-repository' # Your Artifact Registry repository name
   service_account: 'githubaction@regal-sun-445214-a7.iam.gserviceaccount.com'
 
