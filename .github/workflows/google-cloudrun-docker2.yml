@@ -77,7 +77,7 @@ jobs:
       - name: 'Build and Push Container'
         run: |-
           DOCKER_TAG="${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.ARTIFACT_REGISTRY }}/${{ env.SERVICE }}:${{ github.sha }}"
-          docker build --tag "${DOCKER_TAG}" .
+          docker build --tag "${DOCKER_TAG}" ./ecommercebot
           docker push "${DOCKER_TAG}"
       - name: 'Deploy to Cloud Run'
 
