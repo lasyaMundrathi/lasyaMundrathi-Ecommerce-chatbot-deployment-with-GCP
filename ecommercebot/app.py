@@ -4,6 +4,7 @@ from datetime import datetime
 from retrieval_generation import generation
 from ingestpinecone import ingestdata
 
+print("hello...")
 
 # Load environment variables
 load_dotenv()
