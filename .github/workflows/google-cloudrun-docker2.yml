@@ -40,8 +40,8 @@ env:
   SERVICE: 'githubaction' # Your Cloud Run service name
   WORKLOAD_IDENTITY_PROVIDER: 'projects/938459732232/locations/global/workloadIdentityPools/wif-ga-pool/providers/github'
                               
-  ARTIFACT_REGISTRY: 'ga-repository' # Your Artifact Registry repository name
-  service_account: 'githubaction@regal-sun-445214-a7.iam.gserviceaccount.com'
+  ARTIFACT_REGISTRY: 'gitactions-repository' # Your Artifact Registry repository name
+  service_account: 'githubaction-832@regal-sun-445214-a7.iam.gserviceaccount.com'
 
 jobs:
   deploy:
@@ -70,15 +70,19 @@ jobs:
           echo "Listing authenticated accounts..."
           gcloud auth list
           echo "Describing the repository..."
-          gcloud artifacts repositories describe ga-repository --location=us-central1
+          gcloud artifacts repositories describe ${{ env.ARTIFACT_REGISTRY }} --location=${{ env.REGION }}
 
       # Step 4: Docker Authentication for Artifact Registry
-      - name: 'Docker Auth'
-        uses: 'docker/login-action@v3'
-        with:
-          username: 'oauth2accesstoken'
-          password: '${{ steps.auth.outputs.auth_token }}'
-          registry: '${{ env.REGION }}-docker.pkg.dev'
+      # - name: 'Docker Auth'
+      #   uses: 'docker/login-action@v3'
+      #   with:
+      #     username: 'oauth2accesstoken'
+      #     password: '${{ steps.auth.outputs.auth_token }}'
+      #     registry: '${{ env.REGION }}-docker.pkg.dev'
+      - name: 'Configure Docker Auth with Artifact Registry'
+        run: |
+          echo "Configuring Docker Auth with Artifact Registry..."
+          gcloud auth configure-docker us-central1-docker.pkg.dev
 
       # Step 5: Build and Push Docker Image
       - name: 'Build and Push Container'
