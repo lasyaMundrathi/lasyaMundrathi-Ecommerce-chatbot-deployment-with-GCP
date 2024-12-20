@@ -5,7 +5,12 @@ from dotenv import load_dotenv
 from ingestpinecone import ingestdata
 import os
 
-load_dotenv()
+# Retrieve secrets from environment variables
+GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
+LANGCHAIN_API_KEY = os.getenv("LANGCHAIN_API_KEY")
+LANGCHAIN_ENDPOINT = os.getenv("LANGCHAIN_ENDPOINT")
+LANGCHAIN_PROJECT = os.getenv("LANGCHAIN_PROJECT")
+LANGCHAIN_TRACING_V2 = os.getenv("LANGCHAIN_TRACING_V2")
 
 def generation(vstore):
     retriever = vstore.as_retriever(search_kwargs={"k": 3})
