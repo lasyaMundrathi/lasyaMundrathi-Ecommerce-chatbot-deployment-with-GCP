@@ -111,17 +111,6 @@ jobs:
 
           flags: '--allow-unauthenticated'
       
-      # Step 6: List Cloud Run Revisions
-      - name: List Cloud Run Revisions
-        run: |
-          echo "Listing revisions for the Cloud Run service..."
-          gcloud run revisions list --service=githubaction --region=us-central1
-
-      # Step 7: Fetch Logs for the Latest Revision
-      - name: Fetch Cloud Run Logs
-        run: |
-          echo "Fetching logs for the Cloud Run service..."
-          gcloud logging read "resource.type=cloud_run_revision AND resource.labels.service_name=githubaction" --limit=50
       # Step 7: Output Cloud Run URL
       - name: 'Show output'
         run: |
