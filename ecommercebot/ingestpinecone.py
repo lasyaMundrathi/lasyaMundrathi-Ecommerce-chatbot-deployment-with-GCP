@@ -1,12 +1,17 @@
 from langchain_pinecone import PineconeVectorStore
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
-from dotenv import load_dotenv
 from pinecone import Pinecone, ServerlessSpec
 import os
 from data_converter import dataconverter
 
-# Load environment variables
-load_dotenv()
+# Retrieve secrets from environment variables
+GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
+LANGCHAIN_API_KEY = os.getenv("LANGCHAIN_API_KEY")
+LANGCHAIN_ENDPOINT = os.getenv("LANGCHAIN_ENDPOINT")
+LANGCHAIN_PROJECT = os.getenv("LANGCHAIN_PROJECT")
+LANGCHAIN_TRACING_V2 = os.getenv("LANGCHAIN_TRACING_V2")
+PINECONE_API_KEY = os.getenv("PINECONE_API_KEY")
+PINECONE_ENVIRONMENT = os.getenv("PINECONE_ENVIRONMENT")
 
 # Initialize Google Generative AI Embeddings
 embedding = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
