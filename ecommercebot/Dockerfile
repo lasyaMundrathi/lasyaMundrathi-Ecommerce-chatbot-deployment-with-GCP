@@ -19,5 +19,5 @@ ENV PYTHONUNBUFFERED=1
 ENV STREAMLIT_PORT=8080
 
 # Run the application
-CMD ["streamlit", "run", "app.py"]
+CMD ["streamlit", "run", "app.py", "--server.port=8080", "--server.address=0.0.0.0"]
 
