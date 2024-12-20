@@ -1,13 +1,9 @@
 import streamlit as st
-from dotenv import load_dotenv
 from datetime import datetime
 from retrieval_generation import generation
 from ingestpinecone import ingestdata
 
 print("hello...")
-
-# Load environment variables
-load_dotenv()
 
 # Initialize Pinecone vector store and chain
 vstore, inserted_ids = ingestdata(None)
