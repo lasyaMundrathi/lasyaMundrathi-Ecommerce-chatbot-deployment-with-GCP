@@ -12,11 +12,11 @@ RUN pip install --upgrade pip \
     && pip install -r requirements.txt
 
 # Expose the port Streamlit uses
-EXPOSE 8501
+EXPOSE 8080
 
 # Environment variables
 ENV PYTHONUNBUFFERED=1
-ENV STREAMLIT_PORT=8501
+ENV STREAMLIT_PORT=8080
 
 # Run the application
 CMD ["streamlit", "run", "app.py"]
