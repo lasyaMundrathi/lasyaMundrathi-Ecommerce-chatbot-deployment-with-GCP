@@ -4,4 +4,3 @@ langchain-pinecone==0.2.0
 pypdf== 5.1.0
 pinecone-client[grpc]==5.0.1
 streamlit
-pysqlite3-binary
